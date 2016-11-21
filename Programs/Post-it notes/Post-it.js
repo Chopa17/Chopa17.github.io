@@ -114,6 +114,7 @@ $(document).ready(function(){
 	$('#pen').click();
 	//set post-it note border
 	var border = $('.stack').css('border-top-width');
+	alert(border);
 	//size post-it and stack
 	$('.stack').css('border-top-width',border);
 	$('.post-it').css('border-top-width',border);
