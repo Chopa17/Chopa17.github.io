@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html><head>
+<script src="../../js/three.min.js"></script>
+<script src="../../js/OrbitControls.js"></script>
+</head><body style="margin:0; padding:0"><script>
+//global variables
+var scene;
+var camera;
+var renderer;
+var cameraControl;
+//moon spherical angles
+var theta = 0.000;
+var phi = 0.3;
+//set up renderer ("the screen to paint onto")
+function createRenderer(){
+	renderer = new THREE.WebGLRenderer();
+	renderer.setClearColor(0x000000,1.0);
+	renderer.setSize(window.innerWidth, window.innerHeight);
+	renderer.shadowMap.enabled = true;
+}
+//set up camera
+function createCamera(){
+	camera = new THREE.PerspectiveCamera(45,window.innerWidth/window.innerHeight,0.1,1000);
+	camera.position.x = 90;
+	camera.position.y = 32;
+	camera.position.z = 32;
+	camera.lookAt(scene.position);
+	cameraControl = new THREE.OrbitControls(camera);
+}
+//set up lighting
+function createLight(){
+	//add a main directional light
+	var directionalLight = new THREE.DirectionalLight(0xffffff,1);
+	directionalLight.position.set(100,10,-50);
+	directionalLight.name = 'directional';
+	directionalLight.castShadow = true;
+	//increase shadow resolution, prevents blocky shadows
+	directionalLight.shadowMapWidth = 5000;
+	directionalLight.shadowMapHeight = 5000;
+	scene.add(directionalLight);
+	//add a dim ambient light as well
+	var ambientLight = new THREE.AmbientLight(0x111111);
+	scene.add(ambientLight);
+}
+//create the material for the earth
+function createEarthMaterial(){
+	var texture = new THREE.Texture();
+	var loader = new THREE.ImageLoader();
+	//load earth texture
+	loader.load('assets/earthmap2k.jpg',function(image){
+		texture.image = image;
+		texture.needsUpdate = true;
+	});
+	var earthMaterial = new THREE.MeshPhongMaterial();
+	earthMaterial.map = texture;
+	var normalTexture = new THREE.Texture();
+	//load normal map
+	loader.load('assets/earth_normalmap_flat2k.jpg',function(image){
+		normalTexture.image = image;
+		normalTexture.needsUpdate = true;
+	});
+	earthMaterial.normalMap = normalTexture;
+	earthMaterial.normalScale = new THREE.Vector2(0.7,0.7);
+	var specularTexture = new THREE.Texture();
+	//load specular texture
+	loader.load('assets/earthspec2k.jpg',function(image){
+		specularTexture.image = image;
+		specularTexture.needsUpdate = true;
+	});
+	earthMaterial.specularMap = specularTexture;
+	earthMaterial.specular = new THREE.Color(0x262626);
+	var bumpTexture = new THREE.Texture();
+	//load bump map
+	loader.load('assets/earthbump1k.jpg',function(image){
+		bumpTexture.image = image;
+		bumpTexture.needsUpdate = true;
+	});
+	earthMaterial.bumpMap = bumpTexture;
+	earthMaterial.bumpScale = 0.05;
+	return earthMaterial;
+}
+//create the earth object
+function createEarth(){
+	var sphereGeometry = new THREE.SphereGeometry(25,50,50);
+	var sphereMaterial = createEarthMaterial();
+	var earth = new THREE.Mesh(sphereGeometry, sphereMaterial);
+	earth.name= 'earth';
+	earth.position.x = 0;
+	earth.position.y = 0;
+	earth.position.z = 0;
+	earth.castShadow = true;
+	earth.receiveShadow = true;
+	scene.add(earth);
+}
+//create the material for the moon
+function createMoonMaterial(){
+	var texture = new THREE.Texture();
+	var loader = new THREE.ImageLoader();
+	//load moon texture
+	loader.load('assets/moonmap2k.jpg',function(image){
+		texture.image = image;
+		texture.needsUpdate = true;
+	});
+	var moonMaterial = new THREE.MeshPhongMaterial();
+	moonMaterial.map = texture;
+	var bumpTexture = new THREE.Texture();
+	//load bump map
+	loader.load('assets/moonbump2k.jpg',function(image){
+		bumpTexture.image = image;
+		bumpTexture.needsUpdate = true;
+	});
+	moonMaterial.bumpMap = bumpTexture;
+	moonMaterial.bumpScale = 0.05;
+	return moonMaterial;
+}
+//create the moon object
+function createMoon(){
+	var sphereGeometry = new THREE.SphereGeometry(8,50,50);
+	var sphereMaterial = createMoonMaterial();
+	var moon = new THREE.Mesh(sphereGeometry, sphereMaterial);
+	moon.name = 'moon';
+	moon.castShadow = true;
+	moon.receiveShadow = true;
+	scene.add(moon);
+}
+//create the earth's clouds
+function createClouds(){
+	var sphereGeometry = new THREE.SphereGeometry(25.1,50,50);
+	var cloudsTexture = new THREE.Texture();
+	var loader = new THREE.ImageLoader();
+	loader.load('assets/fair_clouds_1k.png', function(image){
+		cloudsTexture.image = image;
+		cloudsTexture.needsUpdate = true;
+	});	
+	var cloudsMaterial = new THREE.MeshPhongMaterial();
+	cloudsMaterial.map = cloudsTexture;
+	cloudsMaterial.transparent = true;
+	var cloudsMesh = new THREE.Mesh(sphereGeometry,cloudsMaterial);
+	cloudsMesh.name = 'clouds';
+	cloudsMesh.receiveShadow = true;
+	scene.add(cloudsMesh);	
+}
+//create a background of stars
+function createStarfield(){
+	var sphereGeometry = new THREE.SphereGeometry(90,32,32);
+	var envTexture = new THREE.Texture();
+	var loader = new THREE.ImageLoader();
+	loader.load('assets/galaxy_starfield.png',function(image){
+		envTexture.image = image;
+		envTexture.needsUpdate = true;
+	});
+	var envMaterial = new THREE.MeshBasicMaterial();
+	envMaterial.map = envTexture;
+	envMaterial.side = THREE.BackSide;
+	var stars = new THREE.Mesh(sphereGeometry,envMaterial);
+	scene.add(stars); 
+}
+//initialise function
+function init(){
+	scene = new THREE.Scene();
+	createRenderer();
+	createCamera();
+	createLight();
+	createEarth();
+	createMoon();
+	createClouds();
+	createStarfield();
+	document.body.appendChild(renderer.domElement);
+	render();
+}
+//render function
+function render(){
+	cameraControl.update();
+	//spin the earth and moon
+	scene.getObjectByName('earth').rotation.y += 0.001;
+	scene.getObjectByName('clouds').rotation.y += 0.0015;
+	scene.getObjectByName('moon').rotation.y += 0.00005;
+	//update the moons position in orbit
+	scene.getObjectByName('moon').position.x = 60*Math.sin(theta)*Math.cos(phi);
+	scene.getObjectByName('moon').position.y = 60*Math.sin(theta)*Math.sin(phi);
+	scene.getObjectByName('moon').position.z = 60*Math.cos(theta);
+	//increment angle
+	theta += 0.001;
+	renderer.render(scene, camera);
+	requestAnimationFrame(render);
+}
+init();
+</script></body></html>
