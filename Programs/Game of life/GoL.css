@@ -1,0 +1,101 @@
+/*CSS for the game of life by Sam Brind*/
+*{
+	margin:0;
+	padding:0;
+	background-color:#ECF1EF;
+	font-family: "Lucida Console","Lucida Sans Typewriter",monaco,"Bitstream Vera Sans Mono",monospace;
+	/* stop highlighting things from double click */
+	-webkit-user-select: none; /* Chrome/Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+}
+.icon{
+	margin:2px;
+	margin-top:5px;
+	margin-left:5px;
+	font-size:50px;
+	font-weight:bold;
+	color:#104E8B;
+	width:50px;
+	height:50px;
+	text-align:center;
+	background-color:#7AC5CD;
+	border-style:solid;
+	border-width:4px;
+	border-color:#104E8B;
+	padding-bottom:5px;
+	font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+}
+.help{
+	margin:4px;
+	margin-top:0px;
+	margin-left:5px;
+	border-style:solid;
+	border-width:0px;
+	border-color:#104E8B;
+	background-color:#7AC5CD;
+	display:inline-block;
+	overflow:hidden;
+	height:0;
+}
+.extras{
+	padding-right:20px;
+	padding-left:5px;
+	border-width:4px;
+}	
+ul{
+	margin-left:20px;
+	list-style-type:disc;
+}
+li{
+	background-color:#7AC5CD;
+	font-size:20px;
+	color:white;
+	text-align:left;
+	padding:2px;
+}
+.counter{
+	float:right;
+	margin-right:20px;
+	margin-top:-35px;
+	display:inline-block;
+	height:35px;
+}
+input{
+	height:12px;
+	width:150px;
+	margin-right:220px;
+}
+button{
+	background-color:#8EA39B;
+	float:right;
+	width:120px;
+	height:40px;
+	color:white;
+	right:100px;
+	font-size:100%;
+	position:fixed;
+}
+table{
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:3px;
+	border-style:solid;
+	border-width:1px;
+	border-color:black;
+}
+td{
+	margin:0px;
+	border-style:solid;
+	border-width:1px;
+	border-color:black;
+	width:38px;
+	min-width:38px;
+	height:38px;
+}
+.alive{
+	background-color:#FFED20;
+}
+.dead{
+	background-color:#3E3E3D;
+}

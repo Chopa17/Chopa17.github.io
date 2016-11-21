@@ -1,0 +1,22 @@
+<!-- Game of life html by Sam Brind -->
+<!DOCTYPE html> <!-- html5 doctype -->
+<html> <!-- start html document -->
+<head> <!-- start document head -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> <!-- link to jquery -->
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script> <!-- link to jquery ui -->
+<script type="text/javascript" src="GoL.js"></script> <!-- link to javascript -->
+<link rel="stylesheet" type="text/css" href="GoL.css"/> <!-- link to CSS -->
+<title>Game of Life</title> <!-- document title -->
+</head> <!-- close document head -->
+<body> <!-- start document body -->
+<!-- help icon, iteration counter and run button -->
+<div class='icon'>?</div> <div class='counter'>Iterations:<input type="text" value="0"><button>Run</button></div>
+<div class='help'> <!-- help information -->
+<ul><li>Less than 2 neighbours - death from under population</li>
+<li>2/3 neighbours - survival</li>
+<li>Greater than 3 neighbours - death from over population</li>
+<li>3 live neighbours reproduce to form a new live cell</li>
+<li>Click on cells to toggle alive/dead, enter a no of iterations and press run...</li></ul></div>
+<table cellspacing='0'></table> <!-- table to contain game board -->
+</body> <!-- close document body -->
+</html> <!-- close html document -->

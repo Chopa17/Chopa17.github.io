@@ -1,0 +1,85 @@
+/*CSS for rock paper scissors by Sam Brind*/
+*{
+	margin:0;
+	padding:0;
+	background-color:#CEF6F5;
+	font-family: "Arial Black","Arial Bold",Gadget,sans-serif;
+	text-align:center;
+	-moz-user-select: none;
+   	-khtml-user-select: none;
+   	-webkit-user-select: none;
+}
+html {height:100%;}
+body {height:100%;font-size:62.5%;}
+.scoreboard{
+	width:25%;
+	height:12%;
+	float:right;
+	font-size:3em;
+	background-color:#BCF5A9;
+}
+font:nth-child(1){
+	color:#0B610B;
+}
+font:nth-child(2){
+	color:#08088A;
+}
+.ai{
+	background-color:#BCF5A9;
+	width:100%;
+	height:40%;
+}
+font{
+	background-color:#BCF5A9;
+}
+.player{
+	background-color:#CEF6F5;
+	width:100%;
+	height:40%;
+}
+.hand{
+	height:85%;
+	width:20%;
+	background-color:white;
+	margin: auto;
+	border-radius:10%;
+	background-size: 80% 80%;
+}
+.ai .hand{
+	background-color:#E3F6CE;
+}
+.player .hand{
+	background-color:#EFFBF8;
+}
+.selection{
+	width:80%;
+	height:19%;
+	margin:auto;
+	background-color:#CEF6F5;
+}
+.button{
+	height:90%;
+	width:10%;
+	margin-top:0.5%;
+	margin-right:0.5%;
+	display:inline-block;
+	border-radius:10%;
+	border-style:solid;
+	border-color:black;
+	background-color:#B40404;
+}
+.rock{
+	background-image:url('rock.png');
+	background-size: 100% 100%;
+}
+.paper{
+	background-image:url('paper.png');
+	background-size: 100% 100%;
+}
+.scissors{
+	background-image:url('scissors.png');
+	background-size: 100% 100%;
+}
+.clicked{
+	background-color:#FE9A2E;
+}

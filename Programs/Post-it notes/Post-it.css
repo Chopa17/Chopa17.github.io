@@ -1,0 +1,212 @@
+/*CSS for post-it notes by Sam Brind*/
+*{
+	margin:0;
+	padding:0;
+	background-color:#D1E5E4;
+	font-family: "Helvetica Neue",Helvetica,sans-serif;
+	color:black;
+	-moz-user-select: none;
+   	-khtml-user-select: none;
+   	-webkit-user-select: none;
+}
+html {height:100%;width:100%;}
+body {height:100%;width:100%;font-size:62.5%;}
+#left{
+	display:inline-block;
+	width:10%;
+	height:100%;
+	position:fixed;
+	left:0;
+	top:0;
+	background-color:#E5FCFB;
+}
+#bin{
+	position:fixed;
+	top:70%;
+	height:30%;
+	width:10%;
+	background-image:url('bin.png');
+	background-size: 100% 100%;
+	background-color:transparent;
+}
+#board{
+	display:inline-block;
+	width:70%;
+	height:100%;
+	position:fixed;
+	left:10%;
+	background-color:#CCAA47;
+	box-sizing:border-box;
+	border-style:solid;
+	border-width:1.5em;
+	border-color:#492E01;
+}
+#right{
+	display:inline-block;
+	width:20%;
+	height:100%;
+	position:fixed;
+	left:80%;
+}
+#stationary{
+	height:72%;
+}
+.stationary{
+	height:80%;
+	width:20%;
+	margin-left:3%;
+	margin-top:2%;
+}
+#pen{
+	display:inline-block;
+	margin-left:10%;
+	background-image:url('pen.png');
+	background-size: 100% 100%;
+}
+#pen.shadow{
+	background-image:url('pen_shadow.png');
+}
+#pencil{
+	display:inline-block;
+	background-image:url('pencil.png');
+	background-size: 100% 100%;
+	
+}
+#pencil.shadow{
+	background-image:url('pencil_shadow.png');
+}
+#redpen{
+	display:inline-block;
+	background-image:url('red pen.png');
+	background-size: 100% 100%;
+}
+#redpen.shadow{
+	background-image:url('red pen_shadow.png');
+}
+#marker{
+	display:inline-block;
+	background-image:url('marker pen.png');
+	background-size: 100% 100%;
+}
+#marker.shadow{
+	background-image:url('marker pen_shadow.png');
+}
+#lower{
+	height:20%;
+	width:100%;
+	background-color:#D1E5E4;
+}
+#arrow{
+	height:100%;
+	width:48%;	
+	margin-left:2%;
+	display:inline-block;
+	background-image:url('arrow.png');
+	background-size: 100% 100%;
+}
+#eraser{
+	background-image:url('eraser.png');
+	background-size: 100% 100%;
+	height:100%;
+	width:48%;
+	margin-left:2%;
+	display:inline-block;
+}
+.pen{
+	font-family:Arial;
+	color:black;
+	font-size:170%;
+}
+.pencil{
+	font-family: 'Patrick Hand', cursive;
+	color:#504F4E;
+	font-size:190%;
+}
+.redpen{
+	font-family:Arial;
+	color:red;
+	font-size:170%;
+}
+.marker{
+	font-family: 'Permanent Marker', cursive;
+	color:black;
+	font-size:300%;
+}
+.post-it{
+	height:25%;
+	width:20%;
+	overflow:hidden;
+	border-top:1em solid;
+	box-sizing:border-box;
+	padding-left:0.5%;
+	position:absolute;
+	right:0;
+	bottom:0;
+}
+.stack{
+	position:fixed;
+	height:23%;
+	width:13.6%;
+	overflow:hidden;
+	border-top:1em solid;
+	box-sizing:border-box;
+	top:75%;
+	left:82%;
+	padding-left:1%;
+}
+.stack.top{
+	z-index:1;
+}
+.stack.bottom{
+	z-index:0;
+}
+#colours{
+	background-color:black;
+	height:15%;
+	width:2.5%;
+	position:fixed;
+	left:95.6%;
+	top:75%;
+	margin-left:0.5%;
+}
+.colour{
+	margin-top:6%;
+	margin-bottom:6%;
+	height:22.5%;
+	width:90%;
+	margin-left:6%;
+}
+.yellow{
+	background-color:#EFE138;
+	border-color:#DCCE33;
+}
+.orange{
+	background-color:#FDA539;
+	border-color:#E79735;
+}
+.pink{
+	background-color:#F598B5;
+	border-color:#E08BA6;
+}
+.blue{
+	background-color:#5CC3BF;
+	border-color:#54B3B0;
+}
+.peeled{
+	-webkit-border-radius:50% 0 0 0;
+	-moz-border-radius:50% 0 0 0;
+    	border-radius:50% 0 0 0;
+}
+.flat{
+	-webkit-border-radius:0 !important;
+	-moz-border-radius:0 !important;
+    	border-radius:0 !important;
+}
+.bin{
+	-webkit-border-radius:50%;
+	-moz-border-radius:50%;
+    	border-radius:50%;
+	height:0;
+	width:0;
+	display:none;
+}
