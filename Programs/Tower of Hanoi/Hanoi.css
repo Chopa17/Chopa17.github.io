@@ -1,0 +1,114 @@
+/*CSS for tower of hanoi by Sam Brind*/
+* {
+	margin:0;
+	padding:0;
+	-moz-user-select: none;
+   	-khtml-user-select: none;
+   	-webkit-user-select: none;
+}
+body {
+	background-color:#ECF1EF;
+	font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
+	font-size:30px;
+}
+.tower {
+	display:inline-block;
+	margin:170px;
+	margin-top:3px;
+	background-color:black;
+	height:700px;
+	margin-bottom:5px;
+}
+.block {
+	text-align:center;
+	position:absolute;
+	height:34px;
+}
+.side {
+	display:inline-block;
+	margin-left:0px;
+	margin-top:8px;
+}
+.counter {
+	font-size:24px;
+	margin-bottom:5px;
+}
+.optimal {
+	font-size:24px;
+	margin-bottom:15px;
+	color:#458B00;
+}
+.odd {
+	background-color:#8B7355;
+}
+.even {
+	background-color:#FFEFDB;
+}
+table {
+	margin-left:5px;
+}
+td {
+	margin:5px;
+	border-style:solid;
+	border-width:2px;
+	border-color:black;
+	text-align:center;
+	height:45px;
+	width:50px;
+	background-color:#EBECE4;
+}
+.active {
+	background-color:#EEF3E2;
+}
+.complete {
+	text-decoration: line-through;
+}
+.green {
+	color:#458B00;
+}
+.status {
+	text-align:center;
+	margin-top:8px;
+	height:30px;
+	position:fixed;
+	margin-left:471.5px;
+}
+#help{
+	width:1300px;
+	height:52px;
+	margin-left:34px;
+}
+.icon{
+	margin:1px;
+	font-size:37px;
+	font-weight:bold;
+	color:#104E8B;
+	width:40px;
+	height:40px;
+	text-align:center;
+	background-color:#7AC5CD;
+	border-style:solid;
+	border-width:4px;
+	border-color:#104E8B;
+	padding:1px;
+	display:inline-block;
+}
+.help{
+	height:0;
+	padding:0px;
+	vertical-align:top;
+	margin-top:5px;
+	margin-left:10px;
+	background-color:#7AC5CD;
+	border-style:solid;
+	border-width:0px;
+	border-color:#104E8B;
+	font-size:20px;
+	width:1200px;
+	display:inline-block;
+	overflow:hidden;
+}
+.extras{
+	border-width:2px;
+	padding:3px;
+}

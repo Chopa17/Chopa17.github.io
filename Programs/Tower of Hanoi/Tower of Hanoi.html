@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html> <!-- html5 doctype -->
+<html> <!-- start html document -->
+<head> <!-- start document head -->
+<meta http-equiv="X-UA-Compatible" content="IE=9"/> <!-- declare content as IE9 standard -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> <!-- link to jquery library -->
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js" type="text/javascript"></script> <!-- link to jquery UI library -->
+<script type="text/javascript" src="Hanoi.js"></script> <!-- link to javascript -->
+<link rel="stylesheet" type="text/css" href="Hanoi.css"/> <!-- link to CSS -->
+<title>Tower of Hanoi</title> <!-- document title -->
+</head> <!-- close document head -->
+<body> <!-- start document body -->
+<div class='status'>&nbsp</div> <!-- status bar (shows if completed) -->
+<div class='tower'>&nbsp</div><div class='tower'>&nbsp</div><div class='tower'>&nbsp</div><div class='side'> <!-- three towers -->
+<div class='counter'>Moves:0</div> <!-- divs to show player moves and optimal number -->
+<div class='optimal'>Optimal:0</div>
+<table cellspacing='0'> <!-- table to select no of blocks ('levels') -->
+<tr><td>1</td><td>11</td></tr>
+<tr><td>2</td><td>12</td></tr>
+<tr><td>3</td><td>13</td></tr>
+<tr><td>4</td><td>14</td></tr>
+<tr><td>5</td><td>15</td></tr>
+<tr><td>6</td><td>16</td></tr>
+<tr><td>7</td><td>17</td></tr>
+<tr><td>8</td><td>18</td></tr>
+<tr><td>9</td><td>19</td></tr>
+<tr><td>10</td><td>20</td></tr>
+</table></div>
+<!-- help icon and corresponding information -->
+<div id='help'><div class='icon'>?</div><div class='help'>Move the blocks onto another tower one block at at time.
+The block must be smaller to be placed on top of another block.
+</div></div>
+</body> <!-- close document body -->
+</html> <!-- close html document -->
