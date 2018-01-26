@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Module>
+<ModulePrefs
+title="Newtongravity"
+author="Sam Brind"
+description="A simulation of orbits under Newtonian gravity, where a small mass is orbiting a much larger mass."
+screenshot="./Newton_logo.png"
+thumbnail="./Newton_logo.png">
+<Require feature="opensocial-0.9"/>
+<Require feature="dynamic-height"/>
+</ModulePrefs>
+<Content type="html" href="Newtongravity_Simulation.xhtml"/>
+</Module>
